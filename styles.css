@@ -1015,6 +1015,10 @@ ul {
   margin-top: 0.5rem;
 }
 
+.form-success.form-error {
+  color: var(--color-accent);
+}
+
 /* ===========================
    Footer
    =========================== */

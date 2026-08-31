@@ -502,11 +502,14 @@ window.addEventListener('load', () => {
 });
 
 // ===========================
-// Contact Form Validation
+// Contact Form
 // ===========================
 
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
+const submitBtn = contactForm.querySelector('button[type="submit"]');
+const btnText = document.getElementById('btn-text');
+const successMessage = formSuccess.textContent.trim();
 
 function validateField(id, errorId, validator, message) {
   const field = document.getElementById(id);
@@ -529,7 +532,13 @@ function isValidEmail(val) {
   return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(val);
 }
 
-contactForm.addEventListener('submit', (e) => {
+function showFormStatus(message, isError) {
+  formSuccess.textContent = message;
+  formSuccess.classList.toggle('form-error', isError);
+  formSuccess.hidden = false;
+}
+
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const nameOk = validateField('name', 'name-error', isNotEmpty, 'Name is required.');
@@ -537,59 +546,46 @@ contactForm.addEventListener('submit', (e) => {
   const subjectOk = validateField('subject', 'subject-error', isNotEmpty, 'Subject is required.');
   const messageOk = validateField('message', 'message-error', isNotEmpty, 'Message is required.');
 
-  if (nameOk && emailOk && subjectOk && messageOk) {
-    formSuccess.hidden = false;
-    contactForm.reset();
-    setTimeout(() => { formSuccess.hidden = true; }, 5000);
+  if (!(nameOk && emailOk && subjectOk && messageOk)) {
+    return;
+  }
+
+  const formData = new FormData(contactForm);
+  formData.append('access_key', '480a93d6-58ee-4009-9b61-395e1a0506ed');
+
+  const originalText = btnText.textContent;
+  btnText.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  formSuccess.hidden = true;
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      showFormStatus(successMessage, false);
+      contactForm.reset();
+      setTimeout(() => { formSuccess.hidden = true; }, 5000);
+    } else {
+      showFormStatus(data.message || 'Could not send your message. Please try again.', true);
+    }
+  } catch (error) {
+    showFormStatus('Something went wrong. Please try again.', true);
+  } finally {
+    btnText.textContent = originalText;
+    submitBtn.disabled = false;
   }
 });
 
-// Clear error on input
 ['name', 'email', 'subject', 'message'].forEach((id) => {
   document.getElementById(id).addEventListener('input', () => {
     document.getElementById(id).classList.remove('invalid');
     document.getElementById(`${id}-error`).textContent = '';
   });
-});
-
-//-------------
-//contact form
-//------------
-const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    formData.append("access_key", "480a93d6-58ee-4009-9b61-395e1a0506ed");
-
-    const originalText = submitBtn.textContent;
-
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert("Success! Your message has been sent.");
-            form.reset();
-        } else {
-            alert("Error: " + data.message);
-        }
-
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
 });
 
 
