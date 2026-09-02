@@ -804,6 +804,21 @@ ul {
   color: #cdc9ff;
 }
 
+.project-image.ascii-torus-preview {
+  height: 236px;
+  padding: 0;
+  font-size: unset;
+  color: inherit;
+  background: #07070f;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.ascii-torus-card ascii-torus {
+  width: 100%;
+  height: 100%;
+}
+
 .project-info {
   padding: 1.5rem;
 }
