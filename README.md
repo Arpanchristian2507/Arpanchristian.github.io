@@ -25,21 +25,21 @@
 
 ---
 <!--
-## ✨ What Makes This Portfolio Stand Out?
+## What Makes This Portfolio Stand Out?
 
 This isn't your average portfolio. It's packed with details that reward the curious:
 
 | Feature | Description |
 |---|---|
-| 🌌 **3D Hero Background** | A live, interactive particle field + wireframe torus rendered with **Three.js**, reacting to your mouse movement |
+| **3D Hero Background** | A live, interactive particle field + wireframe torus rendered with **Three.js**, reacting to your mouse movement |
 | ⚡ **GSAP Scroll Animations** | Buttery-smooth entrance animations on every section as you scroll |
-| ⌨️ **Typing Effect** | Cycles through roles — *Web Developer, Cybersecurity Enthusiast, UI/UX Enthusiast, Creative Coder* |
-| 📊 **Animated Skill Bars** | Skill bars animate into view when you scroll to them |
-| 🔢 **Live Stat Counters** | Stats count up dramatically as they enter the viewport |
-| 📱 **Fully Responsive** | Looks great on every screen, from mobile to widescreen |
-| 🔐 **Hidden CTF Challenge** | A multi-stage Capture The Flag puzzle hidden inside the site — *can you find it?* |
-| 🏆 **Achievement Badge** | Solve all stages of the CTF and earn a persistent digital badge saved in your browser |
-| 📬 **Contact Form** | Client-side validated contact form built right in |
+| **Typing Effect** | Cycles through roles — *Web Developer, Cybersecurity Enthusiast, UI/UX Enthusiast, Creative Coder* |
+| **Animated Skill Bars** | Skill bars animate into view when you scroll to them |
+| **Live Stat Counters** | Stats count up dramatically as they enter the viewport |
+| **Fully Responsive** | Looks great on every screen, from mobile to widescreen |
+| **Hidden CTF Challenge** | A multi-stage Capture The Flag puzzle hidden inside the site — *can you find it?* |
+| **Achievement Badge** | Solve all stages of the CTF and earn a persistent digital badge saved in your browser |
+| **Contact Form** | Client-side validated contact form built right in |
 
 --->
 
@@ -49,10 +49,10 @@ This isn't your average portfolio. It's packed with details that reward the curi
 
 Hidden within the portfolio is a **multi-stage Capture The Flag (CTF) puzzle** designed for developers, security enthusiasts, and curious minds. It involves:
 
-- 🔍 **Inspecting source code** for encoded clues
-- 🔓 **Decoding Base64** messages in the browser console
-- 🧠 **Solving logic puzzles** across multiple stages
-- 🏆 **Unlocking a secret page** and earning a permanent digital badge
+- **Inspecting source code** for encoded clues
+- **Decoding Base64** messages in the browser console
+- **Solving logic puzzles** across multiple stages
+- **Unlocking a secret page** and earning a permanent digital badge
 
 *No brute force. No guessing. Just logic.*
 
@@ -75,22 +75,6 @@ Hidden within the portfolio is a **multi-stage Capture The Flag (CTF) puzzle** d
 </div>
 
 ---
-<!--
-## 💼 Skills
-
-```
-Frontend
-  ├── HTML5              ████████████████████░░  90%
-  ├── CSS3               ███████████████████░░░  85%
-  └── JavaScript         ██████████████████░░░░  80%
-
-Tools & Others
-  ├── Git & GitHub       ███████████████████░░░  85%
-  ├── Responsive Design  ████████████████████░░  88%
-  └── UI / UX            █████████████████░░░░░  75%
-```
-
---->
 
 ## 🗂️ Featured Projects
 
